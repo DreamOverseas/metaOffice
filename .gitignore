@@ -1,0 +1,13 @@
+# Original
+/.cache
+/dist
+node_modules
+/.DS_Store
+/server/lib
+
+# IDE
+.idea/
+.vscode/
+
+# buildFile
+build/
