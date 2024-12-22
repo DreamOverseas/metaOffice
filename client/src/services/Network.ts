@@ -30,12 +30,12 @@ export default class Network {
   mySessionId!: string
 
   constructor() {
-    const protocol = window.location.protocol.replace('http', 'ws')
-    const endpoint =
-      process.env.NODE_ENV === 'production'
-        ? import.meta.env.VITE_SERVER_URL
-        : `${protocol}//${window.location.hostname}:2567`
-    this.client = new Client(endpoint)
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+  const endpoint =
+    process.env.NODE_ENV === 'production'
+      ? `${protocol}://server.meta.do360.com`
+      : `${protocol}://${window.location.hostname}:2567`;
+  this.client = new Client(endpoint);
     this.joinLobbyRoom().then(() => {
       store.dispatch(setLobbyJoined(true))
     })
