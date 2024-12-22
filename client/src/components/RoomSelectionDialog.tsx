@@ -101,6 +101,12 @@ const ProgressBar = styled(LinearProgress)`
   width: 360px;
 `
 
+const MutedWhiteText = styled.p`
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+`;
+
 export default function RoomSelectionDialog() {
   const [showCustomRoom, setShowCustomRoom] = useState(false)
   const [showCreateRoomForm, setShowCreateRoomForm] = useState(false)
@@ -179,7 +185,7 @@ export default function RoomSelectionDialog() {
             </CustomRoomWrapper>
           ) : (
             <>
-              <Title>Welcome to SkyOffice</Title>
+              <Title>Welcome to DO Meta Office</Title>
               <Content>
                 <img src={logo} alt="logo" />
                 <Button variant="contained" color="secondary" onClick={handleConnect}>
@@ -190,15 +196,16 @@ export default function RoomSelectionDialog() {
                   color="secondary"
                   onClick={() => (lobbyJoined ? setShowCustomRoom(true) : setShowSnackbar(true))}
                 >
-                  Create/find custom rooms
+                  Create/Find custom rooms
                 </Button>
+                <MutedWhiteText>Deployed by Hanny for testing, beta version 1.0.2</MutedWhiteText>
               </Content>
             </>
           )}
         </Wrapper>
         {!lobbyJoined && (
           <ProgressBarWrapper>
-            <h3> Connecting to server...</h3>
+            <h3> Connecting to server... </h3>
             <ProgressBar color="secondary" />
           </ProgressBarWrapper>
         )}
