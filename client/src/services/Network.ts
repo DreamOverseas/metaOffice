@@ -33,7 +33,7 @@ export default class Network {
     const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
   const endpoint =
     process.env.NODE_ENV === 'production'
-      ? `${protocol}://server.meta.do360.com`
+      ? `${protocol}://server.meta.do360.com` // change to your own
       : `${protocol}://${window.location.hostname}:2567`;
   this.client = new Client(endpoint);
     this.joinLobbyRoom().then(() => {
